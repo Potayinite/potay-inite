@@ -4,6 +4,10 @@ description: "Pòtay Inite is your gateway to Haitian cultural advocacy, bridgin
 url: "https://potayinite.org"
 baseurl: ""
 
+# Pre-launch: keeps search engines (Google, Bing…) from listing the site.
+# At launch, change this to: noindex: false
+noindex: true
+
 # Languages: English is the default (site root); French lives under /fr/ and Kreyòl under /ht/
 languages: [en, fr, ht]
 default_lang: en
