@@ -5,7 +5,7 @@ backend:
   name: github
   repo: potayinite/potay-inite       # ← your GitHub username / repository name
   branch: main
-  base_url: sveltia-cms-auth.sgp15.workers.dev  # ← your sign-in helper's address
+  base_url: https://sveltia-cms-auth.sgp15.workers.dev  # ← your sign-in helper's address
   commit_messages:
     create: "Add {{collection}} “{{slug}}”"
     update: "Update {{collection}} “{{slug}}”"
