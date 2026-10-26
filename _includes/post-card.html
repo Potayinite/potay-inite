@@ -1,0 +1,12 @@
+{%- assign p = include.post -%}
+<article class="post-card">
+  <a class="post-card-image" href="{{ p.url | relative_url }}" tabindex="-1" aria-hidden="true">
+    {%- if p.image and p.image != "" -%}<img src="{{ p.image | relative_url }}" alt="" loading="lazy">{%- endif -%}
+  </a>
+  <div class="post-meta">
+    {%- if p.category -%}<span class="post-category">{{ p.category }}</span>{%- endif -%}
+    {% include date.html date=p.date lang=p.lang %}
+  </div>
+  <h3 class="post-card-title"><a href="{{ p.url | relative_url }}">{{ p.title }}</a></h3>
+  {%- if p.summary -%}<p class="post-card-summary">{{ p.summary }}</p>{%- endif -%}
+</article>

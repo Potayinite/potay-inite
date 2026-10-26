@@ -1,0 +1,29 @@
+---
+layout: default
+---
+{%- assign t = site.data.i18n[page.lang] -%}
+{%- assign s = site.data.settings[page.lang] -%}
+{%- assign b = site.data.settings.en -%}
+{% include page-head.html data=site.data.pages.contact %}
+<section class="page-body">
+  <div class="wrap contact-grid">
+    <div class="contact-details reveal">
+      <p>
+        {%- if b.phone != "" %}<a href="tel:{{ b.phone | remove: ' ' | remove: '(' | remove: ')' | remove: '-' }}">{{ b.phone }}</a><br>{% endif -%}
+        {%- if b.email != "" %}<a href="mailto:{{ b.email }}">{{ b.email }}</a>{% endif -%}
+      </p>
+      <p>{{ s.address | default: b.address | escape | newline_to_br }}</p>
+      <p class="muted">{{ s.footer_about | default: b.footer_about }}</p>
+    </div>
+    <form class="join-form reveal" action="{{ b.contact_form_action }}" method="POST">
+      <input type="hidden" name="language" value="{{ page.lang }}">
+      <label for="c-name">{{ t.name }} *</label>
+      <input id="c-name" name="name" type="text" required autocomplete="name">
+      <label for="c-email">{{ t.email }} *</label>
+      <input id="c-email" name="email" type="email" required autocomplete="email">
+      <label for="c-msg">{{ t.message }} *</label>
+      <textarea id="c-msg" name="message" rows="6" required></textarea>
+      <button class="btn btn-teal btn-lg" type="submit">{{ t.send }}</button>
+    </form>
+  </div>
+</section>

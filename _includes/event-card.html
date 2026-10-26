@@ -1,0 +1,34 @@
+{%- comment -%}
+  One event card (same look as the Wix events page).
+  e = the event to show (already the right language), base = its English version
+  (photos, links and buttons are taken from there when the translation leaves them empty),
+  past = true for past events.
+{%- endcomment -%}
+{%- assign e = include.e -%}
+{%- assign base = include.base | default: e -%}
+{%- assign t = site.data.i18n[include.lang] -%}
+{%- assign img = e.image | default: base.image -%}
+{%- if img == "" or img == nil -%}{%- assign img = base.gallery[0].image -%}{%- endif -%}
+{%- assign btn = e.button | default: base.button -%}
+{%- assign btn_link = e.button_link | default: base.button_link -%}
+{%- assign place = e.location | default: base.location -%}
+{%- assign time = e.time | default: base.time -%}
+<article class="ev-card{% if include.past %} is-past{% endif %} reveal">
+  <a class="ev-card-image" href="{{ e.url | relative_url }}" tabindex="-1" aria-hidden="true">
+    {%- if img and img != "" -%}<img src="{{ img | relative_url }}" alt="" loading="lazy">{%- endif -%}
+  </a>
+  <div class="ev-card-body">
+    <h3 class="ev-card-title"><a href="{{ e.url | relative_url }}">{{ e.title }}</a></h3>
+    <p class="ev-card-meta">
+      {% include event-when.html date=e.date lang=include.lang year=include.past %}
+      {%- if time and time != "" %} · {{ time }}{% endif -%}
+      {%- if place and place != "" %}<span class="ev-sep" aria-hidden="true">|</span>{{ place }}{% endif -%}
+    </p>
+    <a class="ev-more" href="{{ e.url | relative_url }}">{% if include.past %}{{ t.see_recap }}{% else %}{{ t.more_info }}{% endif %}</a>
+    {%- if include.past == false or include.past == nil -%}
+      {%- if btn and btn != "none" and btn_link and btn_link != "" -%}
+      <a class="btn btn-teal ev-btn" href="{{ btn_link }}" rel="noopener">{{ t.buttons[btn] }}</a>
+      {%- endif -%}
+    {%- endif -%}
+  </div>
+</article>

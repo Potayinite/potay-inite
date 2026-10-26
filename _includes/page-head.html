@@ -1,0 +1,10 @@
+{%- comment -%} Title band used at the top of inner pages. Pass data=<the page's data file> {%- endcomment -%}
+{%- assign pd = include.data[page.lang] -%}
+{%- assign pb = include.data.en -%}
+<section class="page-band">
+  <div class="wrap">
+    <h1 class="title-light">{{ pd.title | default: pb.title }}</h1>
+    {%- assign intro = pd.intro | default: pb.intro -%}
+    {%- if intro and intro != "" -%}<p class="lead">{{ intro }}</p>{%- endif -%}
+  </div>
+</section>

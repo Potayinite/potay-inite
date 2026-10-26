@@ -1,0 +1,52 @@
+# Site settings — Pòtay Inite
+title: Pòtay Inite
+description: "Pòtay Inite is your gateway to Haitian cultural advocacy, bridging ancient roots with modern leadership to drive progress."
+url: "https://potayinite.org"
+baseurl: ""
+
+# Languages: English is the default (site root); French lives under /fr/ and Kreyòl under /ht/
+languages: [en, fr, ht]
+default_lang: en
+
+markdown: kramdown
+kramdown:
+  input: GFM
+
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+# Build pages for future-dated items too (needed so upcoming events get their own pages)
+future: true
+
+collections:
+  events:
+    output: true   # every event gets its own page (details, photos, video)
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+
+defaults:
+  - scope: { path: "" }
+    values: { lang: en }
+  - scope: { path: "fr" }
+    values: { lang: fr }
+  - scope: { path: "ht" }
+    values: { lang: ht }
+  # Blog posts: Decap CMS saves them as _posts/<lang>/YYYY-MM-DD-slug.md
+  - scope: { path: "_posts/en", type: posts }
+    values: { layout: post, lang: en, permalink: "/blog/:year/:month/:title/" }
+  - scope: { path: "_posts/fr", type: posts }
+    values: { layout: post, lang: fr, permalink: "/fr/blog/:year/:month/:title/" }
+  - scope: { path: "_posts/ht", type: posts }
+    values: { layout: post, lang: ht, permalink: "/ht/blog/:year/:month/:title/" }
+  # Events: _events/<lang>/YYYY-MM-DD-slug.md, each with its own page
+  - scope: { path: "_events/en", type: events }
+    values: { layout: event, lang: en, permalink: "/events/:title/" }
+  - scope: { path: "_events/fr", type: events }
+    values: { layout: event, lang: fr, permalink: "/fr/evenements/:title/" }
+  - scope: { path: "_events/ht", type: events }
+    values: { layout: event, lang: ht, permalink: "/ht/evenman/:title/" }

@@ -1,0 +1,92 @@
+---
+layout: default
+---
+{%- comment -%}
+  One event's page: details, video and photo gallery.
+  Photos, video, cover image and button live in the English version and are shared by all languages
+  (a translation can override the cover image or button if it sets its own).
+{%- endcomment -%}
+{%- assign t = site.data.i18n[page.lang] -%}
+{%- assign base = site.events | where: "lang", "en" | where: "slug", page.slug | first | default: page -%}
+{%- assign events_page = site.pages | where: "ref", "events" | where: "lang", page.lang | first -%}
+{%- assign today = site.time | date: "%Y%m%d" | plus: 0 -%}
+{%- assign day = page.date | date: "%Y%m%d" | plus: 0 -%}
+{%- assign is_past = false -%}{%- if day < today -%}{%- assign is_past = true -%}{%- endif -%}
+{%- assign cover = page.image | default: base.image -%}
+{%- assign place = page.location | default: base.location -%}
+{%- assign time = page.time | default: base.time -%}
+{%- assign btn = page.button | default: base.button -%}
+{%- assign btn_link = page.button_link | default: base.button_link -%}
+{%- assign video = base.video | default: page.video -%}
+{%- assign gallery = base.gallery | default: page.gallery -%}
+
+<section class="ev-hero">
+  <div class="wrap ev-hero-grid">
+    <div class="ev-hero-text">
+      <a class="ev-back" href="{{ events_page.url | relative_url }}">← {{ t.back_to_events }}</a>
+      <h1 class="title-light">{{ page.title }}</h1>
+      <p class="ev-hero-meta">
+        {% include event-when.html date=page.date lang=page.lang year=true %}
+        {%- if time and time != "" %} · {{ time }}{% endif -%}
+        {%- if place and place != "" %}<span class="ev-sep" aria-hidden="true">|</span>{{ place }}{% endif -%}
+      </p>
+      {%- if is_past == false and btn and btn != "none" and btn_link and btn_link != "" -%}
+      <p><a class="btn btn-cream btn-lg" href="{{ btn_link }}" rel="noopener">{{ t.buttons[btn] }}</a></p>
+      {%- endif -%}
+    </div>
+    {%- if cover and cover != "" -%}
+    <img class="ev-hero-image" src="{{ cover | relative_url }}" alt="">
+    {%- endif -%}
+  </div>
+</section>
+
+<section class="page-body ev-detail">
+  <div class="wrap">
+    {%- assign body = content | strip -%}
+    {%- if body != "" -%}
+    <div class="ev-block reveal">
+      <h2 class="title-bold section-sub">{{ t.about_event }}</h2>
+      <div class="prose">{{ content }}</div>
+    </div>
+    {%- endif -%}
+
+    {%- if video and video != "" -%}
+    <div class="ev-block reveal">
+      <h2 class="title-bold section-sub">{{ t.video }}</h2>
+      {% include video-embed.html url=video title=page.title lang=page.lang %}
+    </div>
+    {%- endif -%}
+
+    {%- if gallery and gallery.size > 0 -%}
+    <div class="ev-block">
+      <h2 class="title-bold section-sub reveal">{{ t.photos }}</h2>
+      <ul class="gallery" data-gallery>
+        {%- for g in gallery -%}
+        {%- if g.image and g.image != "" -%}
+        <li class="reveal">
+          <a href="{{ g.image | relative_url }}" class="gallery-item" data-caption="{{ g.caption | escape }}">
+            <img src="{{ g.image | relative_url }}" alt="{{ g.caption | escape }}" loading="lazy">
+          </a>
+        </li>
+        {%- endif -%}
+        {%- endfor -%}
+      </ul>
+    </div>
+    {%- endif -%}
+  </div>
+</section>
+
+{%- if gallery and gallery.size > 0 -%}
+<dialog class="lightbox" aria-label="{{ t.photos }}">
+  <button class="lb-close" type="button" aria-label="{{ t.close }}">
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+  </button>
+  <button class="lb-prev" type="button" aria-label="{{ t.previous }}">
+    <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg>
+  </button>
+  <figure><img alt=""><figcaption></figcaption></figure>
+  <button class="lb-next" type="button" aria-label="{{ t.next }}">
+    <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
+  </button>
+</dialog>
+{%- endif -%}

@@ -1,0 +1,18 @@
+{%- comment -%}
+  Turns a button target into an address in the current language.
+  target can be a page name (home, about, events, blog, contact, donate), "join"
+  (the join form on the home page), or a full web address starting with http.
+{%- endcomment -%}
+{%- assign tgt = include.target | default: "home" -%}
+{%- assign first4 = tgt | slice: 0, 4 -%}
+{%- if first4 == "http" or first4 == "mail" -%}
+{{ tgt }}
+{%- elsif tgt == "join" -%}
+{%- assign home_page = site.pages | where: "ref", "home" | where: "lang", include.lang | first -%}
+{{ home_page.url | relative_url }}#join
+{%- elsif tgt == "donate" and site.data.settings.en.donate_url != "" -%}
+{{ site.data.settings.en.donate_url }}
+{%- else -%}
+{%- assign p = site.pages | where: "ref", tgt | where: "lang", include.lang | first -%}
+{{ p.url | relative_url }}
+{%- endif -%}

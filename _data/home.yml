@@ -1,0 +1,174 @@
+# Home page content — edited in /admin → Pages → Home page.
+# One section per language. If a field is empty in French or Kreyòl, the English version is shown.
+# French and Kreyòl were translated from the English and should be reviewed by a native speaker.
+
+en:
+  hero:
+    headline: "Legacy\nOur Future"
+    logo: /assets/images/logo-unity-portal.png
+    logo_alt: Unity Portal
+    intro: "PÒTAY INITE is your gateway to Haitian cultural advocacy, bridging ancient roots with modern leadership to drive progress."
+    button_label: Our Pulse
+    button_target: blog
+    portrait: /assets/images/home/portrait.jpg
+    portrait_alt: "A young Haitian woman in an embroidered blouse on a street in Haiti"
+    badge_label: "Kilti Portal"
+    background: /assets/images/home/landscape.jpg
+  pillars:
+    title: "The Pillars of Our Cultural Movement"
+    intro: "PÒTAY INITE stands as a gateway to heritage and civic empowerment. We are committed to building a sustainable future by preserving our history and providing the tools for collective advocacy and lifelong learning."
+    cards:
+      - title: "Civic Awareness & Social Engagement"
+        text: "Empowering citizens to participate actively in democratic life and community governance."
+      - title: "Cultural Heritage"
+        text: "Protecting and promoting the diverse traditions that ground our identity."
+      - title: "Educational Resources"
+        text: "Ensuring all community members have access to modern knowledge and skills."
+    button_label: Learn More
+    button_target: about
+  pathways:
+    title: "Educational Pathways for Unity"
+    intro: "Our pathway transforms local interest into collective action, empowering citizens to lead with knowledge."
+    items:
+      - title: Cultural Heritage
+        text: "Connect with the historical narratives and artistic traditions that define our movement's soul and strengthen our shared identity."
+        image: /assets/images/home/pathway-1.jpg
+      - title: Civic Knowledge
+        text: "Gain the practical tools and legal knowledge required to navigate and influence local governance effectively and protect community rights."
+        image: /assets/images/home/pathway-2.jpg
+      - title: Action Leadership
+        text: "Collaborate with peers to design and implement initiatives that address the immediate needs of your community through strategic action."
+        image: /assets/images/home/pathway-3.jpg
+      - title: Future Legacy
+        text: "Mentor the next generation of leaders to ensure the sustainability and growth of our cultural impact and movement for years to come."
+        image: /assets/images/home/pathway-4.jpg
+    button_label: About Us
+    button_target: about
+  voices:
+    title: Community Voices
+    featured_quote: "Unity is not the absence of difference, but the presence of collective purpose. Our movement thrives when every voice finds its resonance in our shared history."
+    featured_author: "Jean-Baptiste, Haiti"
+    quotes:
+      - quote: "Education is the bedrock of our civic awareness. We are teaching the next generation that their culture is their power."
+        author: "Marie L., Educator"
+      - quote: "Solidarity means standing together even when the path is uncertain. This movement gives us the map we need."
+        author: "Pierre D., Youth"
+      - quote: "Cultural heritage is not a relic; it is a living force. We are reclaiming our identity to build a stronger future."
+        author: "Dr. Simone, Scholar"
+  network:
+    title: Unity Network
+    text: "Strengthening Haitian identity through strategic diaspora alliances and local empowerment networks that drive sustainable social impact."
+    partners:
+      - { name: ACT, logo: /assets/images/partners/partner-1.jpg, link: "" }
+      - { name: Haitian American Alliance, logo: /assets/images/partners/partner-2.jpg, link: "" }
+      - { name: FOKAL, logo: /assets/images/partners/partner-3.jpg, link: "" }
+      - { name: NAAHP Professionals, logo: /assets/images/partners/partner-4.jpg, link: "" }
+      - { name: Alliance of Haiti, logo: /assets/images/partners/partner-5.jpg, link: "" }
+  join:
+    title: "Fuel the Movement.\nJoin PÒTAY INITE."
+    text: "Connect with organizers and play your part in the cultural evolution of Port-au-Prince and our global diaspora network."
+    image: /assets/images/home/join.jpg
+    image_alt: "Organizers working together around a table"
+    form_title: Join the movement
+
+fr:
+  hero:
+    headline: "Héritage\nNotre avenir"
+    intro: "PÒTAY INITE est votre porte d'entrée vers la défense de la culture haïtienne, unissant nos racines ancestrales à un leadership moderne pour faire avancer notre communauté."
+    button_label: Notre actualité
+    portrait_alt: "Une jeune femme haïtienne en blouse brodée dans une rue d'Haïti"
+    badge_label: "Kilti Portal"
+  pillars:
+    title: "Les piliers de notre mouvement culturel"
+    intro: "PÒTAY INITE est une porte ouverte sur le patrimoine et l'engagement citoyen. Nous bâtissons un avenir durable en préservant notre histoire et en offrant les outils d'une action collective et d'un apprentissage tout au long de la vie."
+    cards:
+      - title: "Conscience civique et engagement social"
+        text: "Donner aux citoyens les moyens de participer activement à la vie démocratique et à la gouvernance locale."
+      - title: "Patrimoine culturel"
+        text: "Protéger et promouvoir les traditions diverses qui fondent notre identité."
+      - title: "Ressources éducatives"
+        text: "Garantir à chaque membre de la communauté l'accès aux savoirs et aux compétences d'aujourd'hui."
+    button_label: En savoir plus
+  pathways:
+    title: "Des parcours éducatifs pour l'unité"
+    intro: "Notre parcours transforme l'intérêt local en action collective et permet aux citoyens de diriger par la connaissance."
+    items:
+      - title: Patrimoine culturel
+        text: "Découvrez les récits historiques et les traditions artistiques qui forment l'âme de notre mouvement et renforcent notre identité commune."
+      - title: Savoir civique
+        text: "Acquérez les outils pratiques et les connaissances juridiques pour comprendre et influencer la gouvernance locale et défendre les droits de la communauté."
+      - title: Leadership en action
+        text: "Travaillez avec vos pairs pour concevoir et mener des initiatives qui répondent aux besoins immédiats de votre communauté."
+      - title: Héritage pour demain
+        text: "Accompagnez la prochaine génération de leaders pour assurer la pérennité et la croissance de notre mouvement culturel."
+    button_label: À propos
+  voices:
+    title: Voix de la communauté
+    featured_quote: "L'unité n'est pas l'absence de différences, mais la présence d'un but commun. Notre mouvement grandit quand chaque voix trouve son écho dans notre histoire partagée."
+    featured_author: "Jean-Baptiste, Haïti"
+    quotes:
+      - quote: "L'éducation est le socle de notre conscience civique. Nous apprenons à la nouvelle génération que sa culture est sa force."
+        author: "Marie L., éducatrice"
+      - quote: "La solidarité, c'est rester unis même quand le chemin est incertain. Ce mouvement nous donne la carte dont nous avons besoin."
+        author: "Pierre D., jeune"
+      - quote: "Le patrimoine culturel n'est pas une relique ; c'est une force vivante. Nous reprenons notre identité pour bâtir un avenir plus fort."
+        author: "Dr Simone, chercheuse"
+  network:
+    title: Réseau Inite
+    text: "Renforcer l'identité haïtienne grâce à des alliances stratégiques avec la diaspora et à des réseaux locaux qui créent un impact social durable."
+  join:
+    title: "Faites avancer le mouvement.\nRejoignez PÒTAY INITE."
+    text: "Rejoignez nos organisateurs et participez à l'évolution culturelle de Port-au-Prince et de notre réseau mondial de la diaspora."
+    image_alt: "Des organisateurs travaillent ensemble autour d'une table"
+    form_title: Rejoindre le mouvement
+
+ht:
+  hero:
+    headline: "Eritaj\nAvni nou"
+    intro: "PÒTAY INITE se pòtay ou pou defann kilti ayisyen, li konekte rasin zansèt nou ak lidèchip modèn pou fè pwogrè."
+    button_label: Nouvèl nou yo
+    portrait_alt: "Yon jèn fanm ayisyen ak yon kòsaj bwode nan yon lari ann Ayiti"
+    badge_label: "Kilti Portal"
+  pillars:
+    title: "Poto mitan mouvman kiltirèl nou an"
+    intro: "PÒTAY INITE se yon pòtay pou eritaj ak angajman sivik. Nou angaje pou n bati yon avni ki dirab, lè n prezève istwa nou epi bay zouti pou aksyon kolektif ak aprantisaj pandan tout lavi."
+    cards:
+      - title: "Konsyans sivik ak angajman sosyal"
+        text: "Ede sitwayen yo patisipe aktivman nan lavi demokratik ak nan jesyon kominote a."
+      - title: "Eritaj kiltirèl"
+        text: "Pwoteje ak ankouraje divès tradisyon ki se fondasyon idantite nou."
+      - title: "Resous edikasyon"
+        text: "Asire chak moun nan kominote a gen aksè ak konesans ak konpetans modèn."
+    button_label: Aprann plis
+  pathways:
+    title: "Chemen edikasyon pou inite"
+    intro: "Chemen nou an transfòme enterè lokal an aksyon kolektif, pou sitwayen yo ka dirije ak konesans."
+    items:
+      - title: Eritaj kiltirèl
+        text: "Konekte ak istwa ak tradisyon atistik ki se nanm mouvman nou an epi ki ranfòse idantite nou pataje a."
+      - title: Konesans sivik
+        text: "Jwenn zouti pratik ak konesans legal pou w konprann epi enfliyanse jesyon lokal epi pwoteje dwa kominote a."
+      - title: Lidèchip an aksyon
+        text: "Travay ak lòt moun pou kreye ak mennen inisyativ ki reponn bezwen kominote w la touswit."
+      - title: Eritaj pou demen
+        text: "Akonpaye pwochen jenerasyon lidè yo pou mouvman kiltirèl nou an ka dire epi grandi pandan anpil ane."
+    button_label: Sou nou
+  voices:
+    title: Vwa kominote a
+    featured_quote: "Inite pa vle di pa gen diferans, li vle di gen yon objektif ansanm. Mouvman nou an grandi lè chak vwa jwenn plas li nan istwa nou pataje a."
+    featured_author: "Jean-Baptiste, Ayiti"
+    quotes:
+      - quote: "Edikasyon se fondasyon konsyans sivik nou. N ap montre nouvo jenerasyon an kilti li se fòs li."
+        author: "Marie L., edikatris"
+      - quote: "Solidarite vle di rete ansanm menm lè chemen an pa klè. Mouvman sa a ban nou kat nou bezwen an."
+        author: "Pierre D., jèn"
+      - quote: "Eritaj kiltirèl pa yon bagay ansyen ki mouri; se yon fòs ki vivan. N ap reprann idantite nou pou n bati yon avni ki pi solid."
+        author: "Dr Simone, chèchè"
+  network:
+    title: Rezo Inite
+    text: "Ranfòse idantite ayisyen grasa alyans ak dyaspora a ak rezo lokal ki pote yon chanjman sosyal ki dirab."
+  join:
+    title: "Bay mouvman an fòs.\nAntre nan PÒTAY INITE."
+    text: "Konekte ak òganizatè yo epi jwe wòl ou nan evolisyon kiltirèl Pòtoprens ak rezo dyaspora nou atravè lemonn."
+    image_alt: "Òganizatè k ap travay ansanm bò yon tab"
+    form_title: Antre nan mouvman an

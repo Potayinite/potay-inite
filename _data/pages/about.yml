@@ -1,0 +1,50 @@
+# About page — edited in /admin → Pages → About.
+en:
+  title: About PÒTAY INITE
+  intro: "PÒTAY INITE stands as a gateway to heritage and civic empowerment."
+  image: /assets/images/home/pathway-1.jpg
+  image_alt: "An elder and a young woman looking through old photographs"
+  body: |
+    ## Our mission
+
+    [Describe Potay Inite's mission.]
+
+    ## Our story
+
+    [How and why Potay Inite began.]
+
+    ## Our team
+
+    [Names and roles of the people who lead the work.]
+fr:
+  title: À propos de PÒTAY INITE
+  intro: "PÒTAY INITE est une porte ouverte sur le patrimoine et l'engagement citoyen."
+  image_alt: "Un aîné et une jeune femme regardent de vieilles photographies"
+  body: |
+    ## Notre mission
+
+    [Décrire la mission de Potay Inite.]
+
+    ## Notre histoire
+
+    [Comment et pourquoi Potay Inite a commencé.]
+
+    ## Notre équipe
+
+    [Noms et rôles des personnes qui portent le projet.]
+ht:
+  title: Sou PÒTAY INITE
+  intro: "PÒTAY INITE se yon pòtay pou eritaj ak angajman sivik."
+  image_alt: "Yon granmoun ak yon jèn fanm k ap gade ansyen foto"
+  body: |
+    ## Misyon nou
+
+    [Dekri misyon Potay Inite.]
+
+    ## Istwa nou
+
+    [Kijan ak poukisa Potay Inite te kòmanse.]
+
+    ## Ekip nou
+
+    [Non ak wòl moun k ap dirije travay la.]

@@ -1,0 +1,153 @@
+---
+layout: default
+---
+{%- assign t = site.data.i18n[page.lang] -%}
+{%- assign d = site.data.home[page.lang] -%}
+{%- assign b = site.data.home.en -%}
+{%- assign s = site.data.settings.en -%}
+
+{%- comment -%} ===== Hero: floating card over the landscape photo ===== {%- endcomment -%}
+{%- assign hero_bg = d.hero.background | default: b.hero.background -%}
+{%- capture hero_url %}{% include target-url.html target=d.hero.button_target lang=page.lang %}{% endcapture -%}
+{%- if d.hero.button_target == nil -%}{%- capture hero_url %}{% include target-url.html target=b.hero.button_target lang=page.lang %}{% endcapture -%}{%- endif -%}
+<section class="hero" style="background-image: url('{{ hero_bg | relative_url }}')">
+  <div class="hero-card">
+    <div class="hero-text">
+      <h1 class="hero-title">{{ d.hero.headline | default: b.hero.headline | escape | newline_to_br }}</h1>
+      {%- assign logo = d.hero.logo | default: b.hero.logo -%}
+      {%- if logo and logo != "" -%}
+      <img class="hero-logo" src="{{ logo | relative_url }}" alt="{{ d.hero.logo_alt | default: b.hero.logo_alt }}" width="600" height="266">
+      {%- endif -%}
+      <p class="hero-intro">{{ d.hero.intro | default: b.hero.intro }}</p>
+      <a class="btn btn-teal btn-lg" href="{{ hero_url | strip }}">{{ d.hero.button_label | default: b.hero.button_label }}</a>
+    </div>
+    <div class="hero-media">
+      <img src="{{ d.hero.portrait | default: b.hero.portrait | relative_url }}" alt="{{ d.hero.portrait_alt | default: b.hero.portrait_alt }}">
+      {%- assign badge = d.hero.badge_label | default: b.hero.badge_label -%}
+      {%- if badge and badge != "" -%}
+      <div class="hero-badge" aria-hidden="true"><span class="hero-badge-ring"></span><span>{{ badge | escape | replace: " ", "<br>" }}</span></div>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{%- comment -%} ===== Pillars ===== {%- endcomment -%}
+{%- capture pillars_url %}{% include target-url.html target=b.pillars.button_target lang=page.lang %}{% endcapture -%}
+<section class="pillars">
+  <div class="wrap">
+    <div class="pillars-head reveal">
+      <h2 class="title-light">{{ d.pillars.title | default: b.pillars.title }}</h2>
+      <p>{{ d.pillars.intro | default: b.pillars.intro }}</p>
+    </div>
+    <div class="pillar-grid">
+      {%- assign cards = d.pillars.cards | default: b.pillars.cards -%}
+      {%- for c in cards -%}
+      <article class="pillar-card reveal">
+        <h3>{{ c.title }}</h3>
+        <p>{{ c.text }}</p>
+      </article>
+      {%- endfor -%}
+    </div>
+    <div class="row-end reveal">
+      <a class="btn btn-cream btn-lg" href="{{ pillars_url | strip }}">{{ d.pillars.button_label | default: b.pillars.button_label }}</a>
+    </div>
+  </div>
+</section>
+
+{%- comment -%} ===== Educational pathways ===== {%- endcomment -%}
+{%- capture pathways_url %}{% include target-url.html target=b.pathways.button_target lang=page.lang %}{% endcapture -%}
+<section class="pathways">
+  <div class="wrap">
+    <div class="split-head reveal">
+      <h2 class="title-bold">{{ d.pathways.title | default: b.pathways.title }}</h2>
+      <p class="lead">{{ d.pathways.intro | default: b.pathways.intro }}</p>
+    </div>
+    <div class="pathway-grid">
+      {%- assign items = d.pathways.items | default: b.pathways.items -%}
+      {%- for it in items -%}
+      {%- assign img = it.image | default: b.pathways.items[forloop.index0].image -%}
+      <article class="pathway-card reveal">
+        <div class="pathway-top">
+          <h3>{{ it.title }}</h3>
+          <span class="pathway-num">{% if forloop.index < 10 %}0{% endif %}{{ forloop.index }}</span>
+        </div>
+        <p>{{ it.text }}</p>
+        {%- if img and img != "" -%}<img src="{{ img | relative_url }}" alt="" loading="lazy">{%- endif -%}
+      </article>
+      {%- endfor -%}
+    </div>
+    <div class="row-end reveal">
+      <a class="btn btn-teal btn-lg" href="{{ pathways_url | strip }}">{{ d.pathways.button_label | default: b.pathways.button_label }}</a>
+    </div>
+  </div>
+</section>
+
+{%- comment -%} ===== Community voices ===== {%- endcomment -%}
+<section class="voices">
+  <div class="wrap">
+    <h2 class="title-bold reveal">{{ d.voices.title | default: b.voices.title }}</h2>
+    <figure class="quote-featured reveal">
+      <blockquote>“{{ d.voices.featured_quote | default: b.voices.featured_quote }}”</blockquote>
+      <figcaption>{{ d.voices.featured_author | default: b.voices.featured_author }}</figcaption>
+    </figure>
+    <div class="quote-grid">
+      {%- assign quotes = d.voices.quotes | default: b.voices.quotes -%}
+      {%- for q in quotes -%}
+      <figure class="quote-card reveal">
+        <blockquote>“{{ q.quote }}”</blockquote>
+        <figcaption>{{ q.author }}</figcaption>
+      </figure>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{%- comment -%} ===== Unity network (partner logos are shared by all languages) ===== {%- endcomment -%}
+<section class="network">
+  <div class="wrap">
+    <div class="network-head reveal">
+      <h2 class="title-bold">{{ d.network.title | default: b.network.title }}</h2>
+      <p>{{ d.network.text | default: b.network.text }}</p>
+    </div>
+    <ul class="partner-grid reveal">
+      {%- for p in b.network.partners -%}
+      <li class="partner-tile">
+        {%- if p.link and p.link != "" -%}<a href="{{ p.link }}" rel="noopener">{%- endif -%}
+        {%- if p.logo and p.logo != "" -%}<img src="{{ p.logo | relative_url }}" alt="{{ p.name }}" loading="lazy">{%- else -%}<span>{{ p.name }}</span>{%- endif -%}
+        {%- if p.link and p.link != "" -%}</a>{%- endif -%}
+      </li>
+      {%- endfor -%}
+    </ul>
+  </div>
+</section>
+
+{%- comment -%} ===== Join the movement ===== {%- endcomment -%}
+<section class="join" id="join">
+  <div class="wrap">
+    <div class="split-head reveal">
+      <h2 class="title-bold">{{ d.join.title | default: b.join.title | escape | newline_to_br }}</h2>
+      <p class="lead">{{ d.join.text | default: b.join.text }}</p>
+    </div>
+    <div class="join-grid">
+      <img class="join-photo reveal" src="{{ d.join.image | default: b.join.image | relative_url }}" alt="{{ d.join.image_alt | default: b.join.image_alt }}" loading="lazy">
+      <form class="join-form reveal" action="{{ s.join_form_action }}" method="POST">
+        <h3>{{ d.join.form_title | default: b.join.form_title }}</h3>
+        <input type="hidden" name="language" value="{{ page.lang }}">
+        <label for="j-name">{{ t.name }} *</label>
+        <input id="j-name" name="name" type="text" required autocomplete="name">
+        <label for="j-email">{{ t.email }} *</label>
+        <input id="j-email" name="email" type="email" required autocomplete="email">
+        <label for="j-loc">{{ t.location }}</label>
+        <input id="j-loc" name="location" type="text" autocomplete="address-level2">
+        <label for="j-interest">{{ t.interest }}</label>
+        <select id="j-interest" name="interest">
+          {%- for opt in t.interests -%}<option>{{ opt }}</option>{%- endfor -%}
+        </select>
+        <label for="j-msg">{{ t.message }}</label>
+        <textarea id="j-msg" name="message" rows="4"></textarea>
+        <label class="check"><input type="checkbox" name="consent" value="yes" required> <span>{{ t.consent }} *</span></label>
+        <button class="btn btn-teal btn-lg" type="submit">{{ t.send }}</button>
+      </form>
+    </div>
+  </div>
+</section>

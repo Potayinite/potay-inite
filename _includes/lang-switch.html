@@ -1,0 +1,27 @@
+{%- comment -%}
+  Links to the same page in the other languages. Pages are matched by "ref";
+  blog posts by file name (Decap keeps it the same across languages).
+  If a translation doesn't exist, the link goes to that language's home page.
+{%- endcomment -%}
+<ul class="lang-switch" aria-label="{{ site.data.i18n[page.lang].language }}">
+  {%- for l in site.languages -%}
+    {%- assign label = l | upcase -%}
+    {%- if l == "ht" -%}{%- assign label = "KR" -%}{%- endif -%}
+    {%- assign href = site.data.i18n[l].home -%}
+    {%- if page.layout == "post" -%}
+      {%- assign twin = site.posts | where: "lang", l | where: "slug", page.slug | first -%}
+      {%- if twin -%}
+        {%- assign twin_body = twin.content | strip -%}
+        {%- if twin_body != "" -%}{%- assign href = twin.url -%}{%- endif -%}
+      {%- endif -%}
+    {%- elsif page.layout == "event" -%}
+      {%- assign twin = site.events | where: "lang", l | where: "slug", page.slug | first -%}
+      {%- if twin and twin.title and twin.title != "" -%}{%- assign href = twin.url -%}
+      {%- else -%}{%- assign ev_page = site.pages | where: "ref", "events" | where: "lang", l | first -%}{%- assign href = ev_page.url -%}{%- endif -%}
+    {%- elsif page.ref -%}
+      {%- assign twin = site.pages | where: "ref", page.ref | where: "lang", l | first -%}
+      {%- if twin -%}{%- assign href = twin.url -%}{%- endif -%}
+    {%- endif -%}
+    <li><a href="{{ href | relative_url }}" lang="{{ l }}" hreflang="{{ l }}"{% if l == page.lang %} aria-current="true"{% endif %} title="{{ site.data.i18n[l].lang_name }}">{{ label }}</a></li>
+  {%- endfor -%}
+</ul>

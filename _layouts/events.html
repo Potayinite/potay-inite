@@ -1,0 +1,50 @@
+---
+layout: default
+---
+{%- comment -%}
+  Events are listed from the English versions. If an event has a translation in this
+  page's language it's shown instead; otherwise the English version is shown.
+  Past events move to the "Past events" grid by themselves (the site rebuilds whenever
+  anything is published in /admin).
+{%- endcomment -%}
+{%- assign t = site.data.i18n[page.lang] -%}
+{% include page-head.html data=site.data.pages.events %}
+{%- assign today = site.time | date: "%Y%m%d" | plus: 0 -%}
+{%- assign base = site.events | where: "lang", "en" | sort: "date" -%}
+{%- assign local = site.events | where: "lang", page.lang -%}
+{%- assign upcoming = "" | split: "" -%}
+{%- assign upcoming_base = "" | split: "" -%}
+{%- assign past = "" | split: "" -%}
+{%- assign past_base = "" | split: "" -%}
+{%- for e in base -%}
+  {%- assign show = e -%}
+  {%- if page.lang != "en" -%}
+    {%- assign twin = local | where: "slug", e.slug | first -%}
+    {%- if twin and twin.title and twin.title != "" -%}{%- assign show = twin -%}{%- endif -%}
+  {%- endif -%}
+  {%- assign day = e.date | date: "%Y%m%d" | plus: 0 -%}
+  {%- if day >= today -%}
+    {%- assign upcoming = upcoming | push: show -%}{%- assign upcoming_base = upcoming_base | push: e -%}
+  {%- else -%}
+    {%- assign past = past | unshift: show -%}{%- assign past_base = past_base | unshift: e -%}
+  {%- endif -%}
+{%- endfor -%}
+<section class="page-body">
+  <div class="wrap">
+    <h2 class="title-bold section-sub reveal">{{ t.upcoming }}</h2>
+    {%- if upcoming.size > 0 -%}
+    <div class="ev-grid">
+      {%- for e in upcoming -%}{%- assign eb = upcoming_base[forloop.index0] -%}{% include event-card.html e=e base=eb lang=page.lang past=false %}{%- endfor -%}
+    </div>
+    {%- else -%}
+    <p class="muted">{{ t.no_events }}</p>
+    {%- endif -%}
+
+    {%- if past.size > 0 -%}
+    <h2 class="title-bold section-sub reveal">{{ t.past }}</h2>
+    <div class="ev-grid">
+      {%- for e in past -%}{%- assign eb = past_base[forloop.index0] -%}{% include event-card.html e=e base=eb lang=page.lang past=true %}{%- endfor -%}
+    </div>
+    {%- endif -%}
+  </div>
+</section>

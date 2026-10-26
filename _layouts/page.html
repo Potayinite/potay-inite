@@ -1,0 +1,18 @@
+---
+layout: default
+---
+{%- assign data = site.data.pages[page.ref] -%}
+{%- assign pd = data[page.lang] -%}
+{%- assign pb = data.en -%}
+{% include page-head.html data=data %}
+<section class="page-body">
+  <div class="wrap page-split">
+    <div class="prose reveal">
+      {{ pd.body | default: pb.body | markdownify }}
+    </div>
+    {%- assign img = pd.image | default: pb.image -%}
+    {%- if img and img != "" -%}
+    <img class="page-photo reveal" src="{{ img | relative_url }}" alt="{{ pd.image_alt | default: pb.image_alt }}" loading="lazy">
+    {%- endif -%}
+  </div>
+</section>

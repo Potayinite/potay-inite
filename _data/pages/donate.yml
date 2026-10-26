@@ -1,0 +1,19 @@
+# Donate page — edited in /admin → Pages → Donate.
+en:
+  title: Support the Movement
+  intro: "Your gift helps preserve Haitian heritage and equip the next generation of leaders."
+  button_label: Donate now
+  body: |
+    [Explain what donations make possible, and list the ways to give.]
+fr:
+  title: Soutenir le mouvement
+  intro: "Votre don aide à préserver le patrimoine haïtien et à former la prochaine génération de leaders."
+  button_label: Faire un don
+  body: |
+    [Expliquer ce que les dons permettent et les façons de donner.]
+ht:
+  title: Sipòte mouvman an
+  intro: "Don ou ede prezève eritaj ayisyen epi prepare pwochen jenerasyon lidè yo."
+  button_label: Fè yon don kounye a
+  body: |
+    [Eksplike sa don yo pèmèt ak fason pou bay.]

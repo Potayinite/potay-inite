@@ -1,0 +1,9 @@
+{%- comment -%} Short event date, e.g. "Tue, Nov 24" / "mar. 24 nov." Pass date, lang, and year=true to add the year. {%- endcomment -%}
+{%- assign t = site.data.i18n[include.lang] -%}
+{%- assign wd = include.date | date: "%w" | plus: 0 -%}
+{%- assign mo = include.date | date: "%-m" | minus: 1 -%}
+{%- assign day = include.date | date: "%-d" -%}
+<time datetime="{{ include.date | date: '%Y-%m-%d' }}">
+{%- if include.lang == "en" -%}{{ t.weekdays[wd] }}, {{ t.months_short[mo] }} {{ day }}{% if include.year %}, {{ include.date | date: "%Y" }}{% endif %}
+{%- else -%}{{ t.weekdays[wd] }} {{ day }} {{ t.months_short[mo] }}{% if include.year %} {{ include.date | date: "%Y" }}{% endif %}{%- endif -%}
+</time>

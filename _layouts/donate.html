@@ -1,0 +1,18 @@
+---
+layout: default
+---
+{%- assign data = site.data.pages.donate -%}
+{%- assign pd = data[page.lang] -%}
+{%- assign pb = data.en -%}
+{%- assign url = site.data.settings.en.donate_url -%}
+{% include page-head.html data=data %}
+<section class="page-body">
+  <div class="wrap">
+    <div class="prose reveal">
+      {{ pd.body | default: pb.body | markdownify }}
+    </div>
+    {%- if url != "" -%}
+    <p class="reveal"><a class="btn btn-teal btn-lg" href="{{ url }}" rel="noopener">{{ pd.button_label | default: pb.button_label }}</a></p>
+    {%- endif -%}
+  </div>
+</section>

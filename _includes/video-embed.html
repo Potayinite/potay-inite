@@ -1,0 +1,24 @@
+{%- comment -%}
+  Embeds a YouTube or Vimeo link. Accepts youtube.com/watch?v=…, youtu.be/…, youtube.com/shorts/…,
+  youtube.com/live/… and vimeo.com/…. Any other link is shown as a button.
+{%- endcomment -%}
+{%- assign url = include.url | strip -%}
+{%- assign vid = "" -%}{%- assign host = "" -%}
+{%- if url contains "youtu.be/" -%}
+  {%- assign vid = url | split: "youtu.be/" | last | split: "?" | first | split: "/" | first -%}{%- assign host = "yt" -%}
+{%- elsif url contains "watch?v=" -%}
+  {%- assign vid = url | split: "watch?v=" | last | split: "&" | first -%}{%- assign host = "yt" -%}
+{%- elsif url contains "/shorts/" -%}
+  {%- assign vid = url | split: "/shorts/" | last | split: "?" | first -%}{%- assign host = "yt" -%}
+{%- elsif url contains "youtube.com/live/" -%}
+  {%- assign vid = url | split: "/live/" | last | split: "?" | first -%}{%- assign host = "yt" -%}
+{%- elsif url contains "vimeo.com/" -%}
+  {%- assign vid = url | split: "vimeo.com/" | last | split: "?" | first | split: "/" | first -%}{%- assign host = "vimeo" -%}
+{%- endif -%}
+{%- if host == "yt" and vid != "" -%}
+<div class="video-frame"><iframe src="https://www.youtube-nocookie.com/embed/{{ vid }}" title="{{ include.title | escape }}" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen></iframe></div>
+{%- elsif host == "vimeo" and vid != "" -%}
+<div class="video-frame"><iframe src="https://player.vimeo.com/video/{{ vid }}" title="{{ include.title | escape }}" loading="lazy" allow="fullscreen; picture-in-picture" allowfullscreen></iframe></div>
+{%- elsif url != "" -%}
+<p><a class="btn btn-teal btn-lg" href="{{ url }}" rel="noopener">{{ site.data.i18n[include.lang].video }} →</a></p>
+{%- endif -%}

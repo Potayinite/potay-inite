@@ -1,0 +1,37 @@
+# Site-wide settings — edited in /admin → Site settings.
+# Text fields have a version per language; links, phone and email are set once (in "en").
+
+en:
+  wordmark: "PÒTAY INITE"
+  tagline: "Preserving Heritage, Empowering Youth, Building Unity."
+  phone: "+1 (555) 382-9483"
+  email: "contact@potayinite.org"
+  address: "Port-au-Prince &\nGlobal Haitian Diaspora Network"
+  footer_about: "Dedicated to serving the global Haitian community through cultural advocacy and educational programs."
+  newsletter_text: "Join our community list for heritage stories and movement updates."
+  footer_note: "Connect with our global network of artists, activists, and cultural leaders."
+  # Where the Donate buttons go if you use an outside page (PayPal, Stripe Payment Link…). Leave empty to use the site's Donate page.
+  donate_url: ""
+  # Formspree form addresses, e.g. https://formspree.io/f/abcdwxyz
+  join_form_action: "https://formspree.io/f/YOUR_JOIN_FORM_ID"
+  contact_form_action: "https://formspree.io/f/YOUR_CONTACT_FORM_ID"
+  newsletter_form_action: "https://formspree.io/f/YOUR_NEWSLETTER_FORM_ID"
+  social:
+    - { name: Facebook, url: "" }
+    - { name: Instagram, url: "" }
+    - { name: YouTube, url: "" }
+    - { name: TikTok, url: "" }
+
+fr:
+  tagline: "Préserver le patrimoine, autonomiser la jeunesse, bâtir l'unité."
+  address: "Port-au-Prince &\nréseau mondial de la diaspora haïtienne"
+  footer_about: "Au service de la communauté haïtienne du monde entier par la défense de la culture et des programmes éducatifs."
+  newsletter_text: "Inscrivez-vous pour recevoir nos récits sur le patrimoine et les nouvelles du mouvement."
+  footer_note: "Rejoignez notre réseau mondial d'artistes, de militants et de leaders culturels."
+
+ht:
+  tagline: "Prezève eritaj, bay jèn yo fòs, bati inite."
+  address: "Pòtoprens &\nrezo dyaspora ayisyen atravè lemonn"
+  footer_about: "N ap sèvi kominote ayisyen atravè lemonn ak defans kilti ak pwogram edikasyon."
+  newsletter_text: "Enskri pou w resevwa istwa sou eritaj nou ak nouvèl mouvman an."
+  footer_note: "Konekte ak rezo atis, aktivis ak lidè kiltirèl nou atravè lemonn."

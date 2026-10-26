@@ -1,0 +1,141 @@
+# Menu labels and small interface words in each language.
+# (Page text is edited in /admin; these labels are edited here.)
+# French and Kreyòl should be reviewed by a native speaker before launch.
+
+en:
+  more_info: More info
+  see_recap: Photos & recap
+  back_to_events: Back to events
+  photos: Photos
+  video: Video
+  about_event: About this event
+  buttons: { tickets: Buy Tickets, rsvp: RSVP, register: Register }
+  weekdays: [Sun, Mon, Tue, Wed, Thu, Fri, Sat]
+  months_short: [Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec]
+  close: Close
+  previous: Previous photo
+  next: Next photo
+  lang_name: English
+  home: /
+  skip: Skip to content
+  nav:
+    - { ref: home, label: Home }
+    - { ref: about, label: About }
+    - { ref: events, label: Events }
+    - { ref: blog, label: Blog }
+    - { ref: contact, label: Contact }
+  donate: Donate
+  join: Join Movement
+  menu: Menu
+  language: Language
+  read_post: Read the article
+  no_posts: No articles yet.
+  back_to_blog: Back to the blog
+  upcoming: Upcoming events
+  past: Past events
+  no_events: No upcoming events right now — check back soon.
+  details: Details
+  email: Email
+  name: Name
+  location: City / Country
+  message: Message
+  interest: How would you like to get involved?
+  interests: [Volunteer, Partner with us, Attend events, Stay informed]
+  consent: I agree to receive community updates
+  send: Submit
+  contact: Contact
+  newsletter: Newsletter
+  by: By
+  months: [January, February, March, April, May, June, July, August, September, October, November, December]
+
+fr:
+  more_info: Plus d'infos
+  see_recap: Photos et retour
+  back_to_events: Retour aux événements
+  photos: Photos
+  video: Vidéo
+  about_event: À propos de cet événement
+  buttons: { tickets: Acheter des billets, rsvp: Confirmer ma présence, register: S'inscrire }
+  weekdays: [dim., lun., mar., mer., jeu., ven., sam.]
+  months_short: [janv., févr., mars, avr., mai, juin, juil., août, sept., oct., nov., déc.]
+  close: Fermer
+  previous: Photo précédente
+  next: Photo suivante
+  lang_name: Français
+  home: /fr/
+  skip: Aller au contenu
+  nav:
+    - { ref: home, label: Accueil }
+    - { ref: about, label: À propos }
+    - { ref: events, label: Événements }
+    - { ref: blog, label: Blog }
+    - { ref: contact, label: Contact }
+  donate: Faire un don
+  join: Rejoindre le mouvement
+  menu: Menu
+  language: Langue
+  read_post: Lire l'article
+  no_posts: Aucun article pour le moment.
+  back_to_blog: Retour au blog
+  upcoming: Événements à venir
+  past: Événements passés
+  no_events: Aucun événement à venir pour le moment — revenez bientôt.
+  details: Détails
+  email: E-mail
+  name: Nom
+  location: Ville / Pays
+  message: Message
+  interest: Comment souhaitez-vous vous impliquer ?
+  interests: [Bénévolat, Partenariat, Participer aux événements, Rester informé]
+  consent: J'accepte de recevoir les nouvelles de la communauté
+  send: Envoyer
+  contact: Contact
+  newsletter: Infolettre
+  by: Par
+  months: [janvier, février, mars, avril, mai, juin, juillet, août, septembre, octobre, novembre, décembre]
+
+ht:
+  more_info: Plis enfòmasyon
+  see_recap: Foto ak rezime
+  back_to_events: Retounen nan evènman yo
+  photos: Foto
+  video: Videyo
+  about_event: Sou evènman sa a
+  buttons: { tickets: Achte tikè, rsvp: Konfime prezans ou, register: Enskri }
+  weekdays: [dim, len, mad, mèk, jed, van, sam]
+  months_short: [jan, fev, mas, avr, me, jen, jiy, out, sep, okt, nov, des]
+  close: Fèmen
+  previous: Foto anvan an
+  next: Pwochen foto
+  lang_name: Kreyòl
+  home: /ht/
+  skip: Ale nan kontni an
+  nav:
+    - { ref: home, label: Akèy }
+    - { ref: about, label: Sou nou }
+    - { ref: events, label: Evènman }
+    - { ref: blog, label: Blog }
+    - { ref: contact, label: Kontak }
+  donate: Fè yon don
+  join: Antre nan mouvman an
+  menu: Meni
+  language: Lang
+  read_post: Li atik la
+  no_posts: Poko gen atik.
+  back_to_blog: Retounen nan blog la
+  upcoming: Evènman k ap vini
+  past: Evènman ki pase
+  no_events: Pa gen evènman k ap vini kounye a — tounen byento.
+  details: Detay
+  email: Imèl
+  name: Non
+  location: Vil / Peyi
+  message: Mesaj
+  interest: Kijan ou ta renmen patisipe?
+  interests: [Volontè, Patnè avè nou, Patisipe nan evènman, Rete enfòme]
+  consent: Mwen dakò pou m resevwa nouvèl kominote a
+  send: Voye
+  contact: Kontak
+  newsletter: Bilten
+  by: Pa
+  months: [janvye, fevriye, mas, avril, me, jen, jiyè, out, septanm, oktòb, novanm, desanm]

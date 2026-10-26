@@ -1,0 +1,21 @@
+---
+layout: default
+---
+{%- assign t = site.data.i18n[page.lang] -%}
+{% include page-head.html data=site.data.pages.blog %}
+<section class="page-body">
+  <div class="wrap">
+    {%- assign lang_posts = site.posts | where: "lang", page.lang -%}
+    {%- assign shown = 0 -%}
+    <div class="post-grid">
+      {%- for post in lang_posts -%}
+        {%- assign body = post.content | strip -%}
+        {%- if body != "" -%}
+          {% include post-card.html post=post %}
+          {%- assign shown = shown | plus: 1 -%}
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+    {%- if shown == 0 -%}<p class="muted">{{ t.no_posts }}</p>{%- endif -%}
+  </div>
+</section>

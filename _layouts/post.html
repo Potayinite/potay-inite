@@ -1,0 +1,23 @@
+---
+layout: default
+---
+{%- assign t = site.data.i18n[page.lang] -%}
+{%- assign blog_page = site.pages | where: "ref", "blog" | where: "lang", page.lang | first -%}
+<article class="post">
+  <div class="wrap post-wrap">
+    <a class="link-teal back-link" href="{{ blog_page.url | relative_url }}">← {{ t.back_to_blog }}</a>
+    <header class="post-head">
+      <div class="post-meta">
+        {%- if page.category -%}<span class="post-category">{{ page.category }}</span>{%- endif -%}
+        {% include date.html date=page.date lang=page.lang %}
+        {%- if page.author and page.author != "" -%}<span>{{ t.by }} {{ page.author }}</span>{%- endif -%}
+      </div>
+      <h1 class="post-title">{{ page.title }}</h1>
+      {%- if page.summary -%}<p class="lead">{{ page.summary }}</p>{%- endif -%}
+    </header>
+    {%- if page.image and page.image != "" -%}<img class="post-image" src="{{ page.image | relative_url }}" alt="">{%- endif -%}
+    <div class="prose">
+      {{ content }}
+    </div>
+  </div>
+</article>

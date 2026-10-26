@@ -1,0 +1,53 @@
+{%- assign t = site.data.i18n[page.lang] -%}
+{%- assign s = site.data.settings[page.lang] -%}
+{%- assign b = site.data.settings.en -%}
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="footer-wordmark">{{ b.wordmark }}</p>
+    <p class="footer-tagline">{{ s.tagline | default: b.tagline }}</p>
+
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h2 class="footer-heading">{{ t.contact }}</h2>
+        <p>
+          {%- if b.phone != "" %}<a href="tel:{{ b.phone | remove: ' ' | remove: '(' | remove: ')' | remove: '-' }}">{{ b.phone }}</a><br>{% endif -%}
+          {%- if b.email != "" %}<a href="mailto:{{ b.email }}">{{ b.email }}</a>{% endif -%}
+        </p>
+        <p>{{ s.address | default: b.address | escape | newline_to_br }}</p>
+        <p>{{ s.footer_about | default: b.footer_about }}</p>
+      </div>
+
+      <nav class="footer-col footer-links" aria-label="{{ t.menu }}">
+        <ul>
+          {%- for item in t.nav -%}
+            {%- assign target = site.pages | where: "ref", item.ref | where: "lang", page.lang | first -%}
+            {%- if target -%}<li><a href="{{ target.url | relative_url }}">{{ item.label }}</a></li>{%- endif -%}
+          {%- endfor -%}
+          {%- capture donate_url %}{% include target-url.html target="donate" lang=page.lang %}{% endcapture -%}
+          <li><a href="{{ donate_url | strip }}">{{ t.donate }}</a></li>
+          {%- for n in b.social -%}
+            {%- if n.url != "" -%}<li><a href="{{ n.url }}" rel="noopener">{{ n.name }}</a></li>{%- endif -%}
+          {%- endfor -%}
+        </ul>
+      </nav>
+
+      <div class="footer-col footer-newsletter">
+        <h2 class="footer-heading">{{ t.newsletter }}</h2>
+        <p>{{ s.newsletter_text | default: b.newsletter_text }}</p>
+        <form action="{{ b.newsletter_form_action }}" method="POST" class="underline-form">
+          <input type="hidden" name="language" value="{{ page.lang }}">
+          <label for="nl-email">{{ t.email }} *</label>
+          <input id="nl-email" type="email" name="email" required autocomplete="email">
+          <label class="check"><input type="checkbox" name="consent" value="yes" required> <span>{{ t.consent }} *</span></label>
+          <button type="submit" class="link-button">{{ t.send }}</button>
+        </form>
+      </div>
+    </div>
+
+    <p class="footer-note">{{ s.footer_note | default: b.footer_note }}</p>
+    <div class="footer-bottom">
+      <span>© {{ site.time | date: "%Y" }} {{ b.wordmark }}</span>
+      <span>English · Français · Kreyòl</span>
+    </div>
+  </div>
+</footer>
