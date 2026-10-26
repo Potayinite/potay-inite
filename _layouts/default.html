@@ -4,6 +4,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script>document.documentElement.classList.replace('no-js','js');</script>
+  {%- if site.noindex %}
+  <meta name="robots" content="noindex, nofollow">
+  {%- endif %}
   {%- comment -%} A blog post with no text in this language (an untranslated copy made by the CMS) forwards to the English version. {%- endcomment -%}
   {%- if page.layout == "post" -%}
     {%- assign body_check = page.content | strip -%}
